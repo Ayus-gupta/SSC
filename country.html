@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Countries Info</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <!-- Menu -->
+  <label class="main">
+     
+    <input class="inp" checked="" type="checkbox" />
+    <div class="bar">
+      <span class="top bar-list"></span>
+      <span class="middle bar-list"></span>
+      <span class="bottom bar-list"></span>
+    </div>
+    <section class="menu-container">
+      <div class="menu-list"><a href="state.html">States</a></div>
+      <div class="menu-list"><a href="https://ayus-gupta.github.io/MyProfile">Know Me</a></div>
+    </section>
+  </label>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left side: Country buttons -->
+    <div class="col-md-3 state-list">
+      <h4 class="mb-3">Countries</h4>
+      <div id="countries"></div>
+    </div>
+
+    <!-- Right side: Info card -->
+    <div class="col-md-9">
+      <div class="card shadow-sm info-card">
+        <div class="card-body">
+          <h3 id="countryName" class="mb-3">Select a Country</h3>
+
+          <p>
+            <i class="bi bi-collection info-icon"></i>
+            <strong><b>Total States:</b></strong>||  <i><span id="totalStates">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-tree-fill info-icon"></i>
+            <strong><b>% Land Cover:</b></strong>||  <i><span id="landCover">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-building info-icon"></i>
+            <strong><b>Capital:</b></strong>||  <i><span id="capital">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-cpu-fill info-icon"></i>
+            <strong><b>Technology Contribution:</b></strong>||  <i><span id="tech">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-gender-ambiguous info-icon"></i>
+            <strong><b>Sex Ratio:</b></strong>||  <i><span id="sexRatio">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-exclamation-triangle-fill info-icon"></i>
+            <strong><b>Crime Rate:</b></strong>||  <i><span id="crimeRate">-</span></i>
+          </p>
+
+          <p>
+            <i class="bi bi-journal-text info-icon"></i>
+            <strong><b>Literacy Rate:</b></strong>||  <i><span id="literacyRate">-</span></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const countryData = {
+  india: {
+    name: "India",
+    totalStates: "28 States + 8 UTs",
+    landCover: "24.5% forest cover",
+    capital: "New Delhi",
+    tech: "Major IT Outsourcing Hub (Bangalore, Hyderabad, Pune)",
+    sexRatio: "943 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 44.4 (2023)",
+    literacyRate: "77.7%"
+  },
+  usa: {
+    name: "United States of America",
+    totalStates: "50 States + DC",
+    landCover: "33.9% forest cover",
+    capital: "Washington, D.C.",
+    tech: "Global Leader (Silicon Valley, AI, SpaceTech)",
+    sexRatio: "100 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 47.7 (2023)",
+    literacyRate: "99%"
+  },
+  china: {
+    name: "China",
+    totalStates: "23 Provinces + 5 Autonomous Regions",
+    landCover: "21.9% forest cover",
+    capital: "Beijing",
+    tech: "World Leader in Manufacturing, 5G, AI",
+    sexRatio: "105 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 78.0 (2023)",
+    literacyRate: "96.8%"
+  },
+  japan: {
+    name: "Japan",
+    totalStates: "47 Prefectures",
+    landCover: "68.5% forest cover",
+    capital: "Tokyo",
+    tech: "Advanced Robotics, Electronics, Automobile",
+    sexRatio: "95 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 73.7 (2023)",
+    literacyRate: "99%"
+  },
+  germany: {
+    name: "Germany",
+    totalStates: "16 States",
+    landCover: "32% forest cover",
+    capital: "Berlin",
+    tech: "Engineering, Automotive, Renewable Energy",
+    sexRatio: "97 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 79.0 (2023)",
+    literacyRate: "99%"
+  },
+  uk: {
+    name: "United Kingdom",
+    totalStates: "4 Constituent Countries",
+    landCover: "13% forest cover",
+    capital: "London",
+    tech: "Financial Hub, AI, Aerospace, Pharma",
+    sexRatio: "97 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 73.0 (2023)",
+    literacyRate: "99%"
+  },
+  brazil: {
+    name: "Brazil",
+    totalStates: "26 States + 1 Federal District",
+    landCover: "59% forest cover (Amazon)",
+    capital: "Brasília",
+    tech: "Agriculture, Biofuels, Aerospace (Embraer)",
+    sexRatio: "96 ♀ per 1000 ♂",
+    crimeRate: "CPI Index 38.0 (2023)",
+    literacyRate: "93.2%"
+  }
+};
+
+const order = ["india","usa","china","japan","germany","uk","brazil"];
+
+const countriesDiv = document.getElementById("countries");
+order.forEach(id=>{
+  if(countryData[id]) {
+    const btn = document.createElement("button");
+    btn.className = "btn btn-outline-primary state-btn";
+    btn.textContent = countryData[id].name;
+    btn.dataset.country = id;
+    countriesDiv.appendChild(btn);
+  }
+});
+
+document.querySelectorAll(".state-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".state-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const id = btn.dataset.country;
+    const data = countryData[id];
+
+    document.getElementById("countryName").innerText = data.name;
+    document.getElementById("totalStates").innerText = data.totalStates;
+    document.getElementById("landCover").innerText = data.landCover;
+    document.getElementById("capital").innerText = data.capital;
+    document.getElementById("tech").innerText = data.tech;
+    document.getElementById("sexRatio").innerText = data.sexRatio;
+    document.getElementById("crimeRate").innerText = data.crimeRate;
+    document.getElementById("literacyRate").innerText = data.literacyRate;
+  });
+});
+</script>
+
+</body>
+</html>

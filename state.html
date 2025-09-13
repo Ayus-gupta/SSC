@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indian States Info</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <!-- From Uiverse.io by Spacious74 --> 
+<!-- From Uiverse.io by pathikcomp --> 
+<label class="main">
+  Menu
+  <input class="inp" checked="" type="checkbox" />
+  <div class="bar">
+    <span class="top bar-list"></span>
+    <span class="middle bar-list"></span>
+    <span class="bottom bar-list"></span>
+  </div>
+  <section class="menu-container">
+    <div class="menu-list"><a href="country.html">Country</a></div>
+    <div class="menu-list"><a href="https://ayus-gupta.github.io/MyProfile">Know Me</a></div>
+
+  </section>
+</label>
+
+
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left side: State buttons -->
+    <div class="col-md-3 state-list">
+      <h4 class="mb-3">States of India</h4>
+      <div id="states"></div>
+    </div>
+
+    <!-- Right side: Info card (sticky) -->
+<div class="col-md-9">
+  <div class="card shadow-sm info-card">
+    <div class="card-body">
+      <h3 id="stateName" class="mb-3">Select a State</h3>
+
+      <p>
+        <i class="bi bi-music-note-beamed info-icon"></i>
+        <strong>Dance:</strong> <span id="dance">-</span>
+      </p>
+
+      <p>
+        <i class="bi bi-water info-icon"></i>
+        <strong>River:</strong> <span id="river">-</span>
+      </p>
+
+      <p>
+        <i class="bi bi-bookmark-heart info-icon"></i>
+        <strong>Nickname:</strong> <span id="nickname">-</span>
+      </p>
+
+      <p>
+        <i class="bi bi-gender-ambiguous info-icon"></i>
+        <strong>Sex Ratio:</strong> <span id="sexRatio">-</span>
+      </p>
+
+      <p>
+        <i class="bi bi-tree-fill info-icon"></i>
+        <strong>Land Cover:</strong> <span id="landCover">-</span>
+      </p>
+
+      <p>
+        <i class="bi bi-journal-text info-icon"></i>
+        <strong>Literacy Rate:</strong> <span id="literacyRate">-</span>
+      </p>
+     
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<script>
+const stateData = {
+  jammu: {
+    name: "Jammu & Kashmir",
+    dance: "Rouf",
+    river: "Jhelum",
+    nickname: "Paradise on Earth",
+    sexRatio: "889 ♀ per 1000 ♂",
+    landCover: "46% forest cover",
+    literacyRate: "68.7%"
+  },
+  himachal: {
+    name: "Himachal Pradesh",
+    dance: "Nati",
+    river: "Beas",
+    nickname: "Dev Bhoomi (Land of Gods)",
+    sexRatio: "972 ♀ per 1000 ♂",
+    landCover: "27% forest cover",
+    literacyRate: "82.8%"
+  },
+  punjab: {
+    name: "Punjab",
+    dance: "Bhangra & Giddha",
+    river: "Sutlej",
+    nickname: "Granary of India",
+    sexRatio: "895 ♀ per 1000 ♂",
+    landCover: "6% forest cover",
+    literacyRate: "75.8%"
+  },
+  uttarakhand: {
+    name: "Uttarakhand",
+    dance: "Langvir Nritya",
+    river: "Ganga",
+    nickname: "Land of Gods",
+    sexRatio: "963 ♀ per 1000 ♂",
+    landCover: "45% forest cover",
+    literacyRate: "78.8%"
+  },
+  haryana: {
+    name: "Haryana",
+    dance: "Phag Dance",
+    river: "Yamuna",
+    nickname: "Abode of God",
+    sexRatio: "879 ♀ per 1000 ♂",
+    landCover: "3.6% forest cover",
+    literacyRate: "75.6%"
+  },
+  rajasthan: {
+    name: "Rajasthan",
+    dance: "Ghoomar",
+    river: "Banas",
+    nickname: "Land of Kings",
+    sexRatio: "928 ♀ per 1000 ♂",
+    landCover: "4.9% forest cover",
+    literacyRate: "66.1%"
+  },
+  uttarpradesh: {
+    name: "Uttar Pradesh",
+    dance: "Kathak",
+    river: "Ganga",
+    nickname: "Heartland of India",
+    sexRatio: "912 ♀ per 1000 ♂",
+    landCover: "6.9% forest cover",
+    literacyRate: "67.7%"
+  },
+  bihar: {
+    name: "Bihar",
+    dance: "Jat-Jatin",
+    river: "Ganga",
+    nickname: "Land of Buddha",
+    sexRatio: "918 ♀ per 1000 ♂",
+    landCover: "7.8% forest cover",
+    literacyRate: "61.8%"
+  },
+  sikkim: {
+    name: "Sikkim",
+    dance: "Mask Dance",
+    river: "Teesta",
+    nickname: "Land of Flowers",
+    sexRatio: "890 ♀ per 1000 ♂",
+    landCover: "47% forest cover",
+    literacyRate: "81.4%"
+  },
+  arunachal: {
+    name: "Arunachal Pradesh",
+    dance: "Ponung",
+    river: "Siang",
+    nickname: "Land of the Rising Sun",
+    sexRatio: "920 ♀ per 1000 ♂",
+    landCover: "66% forest cover",
+    literacyRate: "65.4%"
+  },
+  assam: {
+    name: "Assam",
+    dance: "Bihu",
+    river: "Brahmaputra",
+    nickname: "Land of Red Rivers & Blue Hills",
+    sexRatio: "958 ♀ per 1000 ♂",
+    landCover: "35% forest cover",
+    literacyRate: "72.2%"
+  },
+  meghalaya: {
+    name: "Meghalaya",
+    dance: "Wangala",
+    river: "Umngot",
+    nickname: "Abode of Clouds",
+    sexRatio: "986 ♀ per 1000 ♂",
+    landCover: "76% forest cover",
+    literacyRate: "74.4%"
+  },
+  nagaland: {
+    name: "Nagaland",
+    dance: "Chang Lo",
+    river: "Dhansiri",
+    nickname: "Land of Festivals",
+    sexRatio: "931 ♀ per 1000 ♂",
+    landCover: "52% forest cover",
+    literacyRate: "79.6%"
+  },
+  manipur: {
+    name: "Manipur",
+    dance: "Manipuri",
+    river: "Barak",
+    nickname: "Jewel of India",
+    sexRatio: "985 ♀ per 1000 ♂",
+    landCover: "77% forest cover",
+    literacyRate: "79.2%"
+  },
+  mizoram: {
+    name: "Mizoram",
+    dance: "Cheraw (Bamboo Dance)",
+    river: "Tlawng",
+    nickname: "Land of the Hill People",
+    sexRatio: "976 ♀ per 1000 ♂",
+    landCover: "86% forest cover",
+    literacyRate: "91.3%"
+  },
+  tripura: {
+    name: "Tripura",
+    dance: "Hojagiri",
+    river: "Gumti",
+    nickname: "Land of Diversity",
+    sexRatio: "960 ♀ per 1000 ♂",
+    landCover: "60% forest cover",
+    literacyRate: "87.2%"
+  },
+  westbengal: {
+    name: "West Bengal",
+    dance: "Chhau",
+    river: "Hooghly (Ganga)",
+    nickname: "Cultural Capital of India",
+    sexRatio: "950 ♀ per 1000 ♂",
+    landCover: "13.5% forest cover",
+    literacyRate: "76.3%"
+  },
+  jharkhand: {
+    name: "Jharkhand",
+    dance: "Paika",
+    river: "Subarnarekha",
+    nickname: "Land of Forests",
+    sexRatio: "948 ♀ per 1000 ♂",
+    landCover: "29% forest cover",
+    literacyRate: "66.4%"
+  },
+  odisha: {
+    name: "Odisha",
+    dance: "Odissi",
+    river: "Mahanadi",
+    nickname: "Soul of India",
+    sexRatio: "979 ♀ per 1000 ♂",
+    landCover: "32% forest cover",
+    literacyRate: "72.9%"
+  },
+  chhattisgarh: {
+    name: "Chhattisgarh",
+    dance: "Panthi",
+    river: "Mahanadi",
+    nickname: "Rice Bowl of India",
+    sexRatio: "991 ♀ per 1000 ♂",
+    landCover: "41% forest cover",
+    literacyRate: "70.3%"
+  },
+  madhyapradesh: {
+    name: "Madhya Pradesh",
+    dance: "Matki Dance",
+    river: "Narmada",
+    nickname: "Heart of India",
+    sexRatio: "931 ♀ per 1000 ♂",
+    landCover: "25% forest cover",
+    literacyRate: "70.6%"
+  },
+  gujarat: {
+    name: "Gujarat",
+    dance: "Garba",
+    river: "Sabarmati",
+    nickname: "Jewel of Western India",
+    sexRatio: "919 ♀ per 1000 ♂",
+    landCover: "7.6% forest cover",
+    literacyRate: "78%"
+  },
+  maharashtra: {
+    name: "Maharashtra",
+    dance: "Lavani",
+    river: "Godavari",
+    nickname: "Gateway of India",
+    sexRatio: "929 ♀ per 1000 ♂",
+    landCover: "16.5% forest cover",
+    literacyRate: "82.3%"
+  },
+  telangana: {
+    name: "Telangana",
+    dance: "Perini Sivatandavam",
+    river: "Krishna",
+    nickname: "Seed Bowl of India",
+    sexRatio: "988 ♀ per 1000 ♂",
+    landCover: "24% forest cover",
+    literacyRate: "72.8%"
+  },
+  andhra: {
+    name: "Andhra Pradesh",
+    dance: "Kuchipudi",
+    river: "Krishna",
+    nickname: "Kohinoor of India",
+    sexRatio: "993 ♀ per 1000 ♂",
+    landCover: "16% forest cover",
+    literacyRate: "67.4%"
+  },
+  karnataka: {
+    name: "Karnataka",
+    dance: "Yakshagana",
+    river: "Kaveri",
+    nickname: "Land of Sandalwood",
+    sexRatio: "973 ♀ per 1000 ♂",
+    landCover: "20% forest cover",
+    literacyRate: "75.4%"
+  },
+  kerala: {
+    name: "Kerala",
+    dance: "Kathakali",
+    river: "Periyar",
+    nickname: "God's Own Country",
+    sexRatio: "1084 ♀ per 1000 ♂",
+    landCover: "29% forest cover",
+    literacyRate: "94%"
+  },
+  tamilnadu: {
+    name: "Tamil Nadu",
+    dance: "Bharatanatyam",
+    river: "Kaveri",
+    nickname: "Land of Temples",
+    sexRatio: "996 ♀ per 1000 ♂",
+    landCover: "20% forest cover",
+    literacyRate: "80.1%"
+  }
+};
+
+
+const order = [
+  "jammu","himachal","punjab","uttarakhand","haryana","rajasthan","uttarpradesh","bihar","sikkim",
+  "arunachal","assam","meghalaya","nagaland","manipur","mizoram","tripura","westbengal","jharkhand",
+  "odisha","chhattisgarh","madhyapradesh","gujarat","maharashtra","telangana","andhra","karnataka","kerala","tamilnadu"
+];
+
+const statesDiv = document.getElementById("states");
+order.forEach(id=>{
+  if(stateData[id]) {
+    const btn = document.createElement("button");
+    btn.className = "btn btn-outline-primary state-btn";
+    btn.textContent = stateData[id].name;
+    btn.dataset.state = id;
+    statesDiv.appendChild(btn);
+  }
+});
+
+document.querySelectorAll(".state-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    // remove active class from all
+    document.querySelectorAll(".state-btn").forEach(b=>b.classList.remove("active"));
+    // set active class
+    btn.classList.add("active");
+    const id = btn.dataset.state;
+    const data = stateData[id];
+
+    document.getElementById("stateName").innerText = data.name;
+    document.getElementById("dance").innerText = data.dance;
+    document.getElementById("river").innerText = data.river;
+    document.getElementById("nickname").innerText = data.nickname;
+    document.getElementById("sexRatio").innerText = data.sexRatio;
+    document.getElementById("landCover").innerText = data.landCover;
+    document.getElementById("literacyRate").innerText = data.literacyRate;
+
+    // handle affairs safely
+    document.getElementById("affairs").innerHTML = (data.affairs || [])
+      .map(a => `<li>${a}</li>`)
+      .join("");
+  });
+});
+</script>
+
+</body>
+</html>
