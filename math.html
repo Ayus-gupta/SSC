@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remember It</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .topic-btn { margin: 5px 0; }
+    .topic-details { display: none; margin-top: 10px; }
+  </style>
+</head>
+<body class="container py-4">
+<nav>
+    <label class="main">
+  Menu
+  <input class="inp" checked="" type="checkbox" />
+  <div class="bar">
+    <span class="top bar-list"></span>
+    <span class="middle bar-list"></span>
+    <span class="bottom bar-list"></span>
+  </div>
+  <section class="menu-container">
+    <div class="menu-list"><a href="country.html">Country</a></div>
+    <div class="menu-list"><a href="https://ayus-gupta.github.io/MyProfile">Know Me</a></div>
+    <div class="menu-list"><a href="state.html">States</a></div>
+
+  </section>
+</label>
+
+</nav>
+  <h2 class="text-center mb-4">SSC Advanced Math Topics</h2>
+
+  <!-- Search Input -->
+  <div class="mb-3">
+    <input type="text" class="form-control" id="searchInput" placeholder="Search Topic..." onkeyup="searchTopic()">
+    <!-- onkeyup triggers search as user types -->
+  </div>
+
+  <div id="topics">
+    <!-- 1. Algebra -->
+    <div class="card p-3 mb-3" data-title="Algebra">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('algebra')">
+        1. Algebra
+      </button>
+      <div id="algebra" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>(x+y+z)² = x² + y² + z² + 2(xy + yz + zx)</li>
+          <li>a³ + b³ = (a+b)(a²-ab+b²)</li>
+          <li>a³ - b³ = (a-b)(a²+ab+b²)</li>
+          <li>(x+y)³ = x³ + y³ + 3xy(x+y)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Remember cubes using “sum-difference factorization” to quickly break large numbers.</p>
+        <h5>Concept:</h5>
+        <p>Algebra involves manipulation of variables and expressions. Advanced identities help solve cubic, quadratic, and sum-product problems efficiently.</p>
+      </div>
+    </div>
+
+    <!-- 2. Geometry -->
+    <div class="card p-3 mb-3" data-title="Geometry">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('geometry')">
+        2. Geometry
+      </button>
+      <div id="geometry" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Area of Triangle using Heron’s formula: √[s(s-a)(s-b)(s-c)], s = (a+b+c)/2</li>
+          <li>Area of Quadrilateral = √[(s-a)(s-b)(s-c)(s-d) - abcd cos²(½(∠A+∠C))]</li>
+          <li>Circumradius R = abc / 4Δ (Δ = area of triangle)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use semiperimeter for triangles and quadrilaterals to quickly calculate areas without height.</p>
+        <h5>Concept:</h5>
+        <p>Geometry advanced formulas reduce complex figures into computable forms. Useful in competitive exams for speed calculation of areas, sides, and angles.</p>
+      </div>
+    </div>
+
+    <!-- 3. Trigonometry -->
+    <div class="card p-3 mb-3" data-title="Trigonometry">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('trigonometry')">
+        3. Trigonometry
+      </button>
+      <div id="trigonometry" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>sin 2θ = 2 sinθ cosθ</li>
+          <li>cos 2θ = cos²θ - sin²θ = 2cos²θ - 1 = 1 - 2sin²θ</li>
+          <li>tan (A ± B) = (tanA ± tanB) / (1 ∓ tanA tanB)</li>
+          <li>sin A + sin B = 2 sin((A+B)/2) cos((A-B)/2)</li>
+          <li>cos A + cos B = 2 cos((A+B)/2) cos((A-B)/2)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use sum-to-product and double-angle formulas for quick evaluation of complex angles.</p>
+        <h5>Concept:</h5>
+        <p>Trigonometry advanced formulas allow simplification of multiple angle problems, cyclic sums, and applied geometry questions.</p>
+      </div>
+    </div>
+
+    <!-- 4. Mensuration -->
+    <div class="card p-3 mb-3" data-title="Mensuration">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('mensuration')">
+        4. Mensuration
+      </button>
+      <div id="mensuration" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Surface area of a cone = πr(l+r), l = slant height</li>
+          <li>Volume of frustum = 1/3 π h (R² + r² + Rr)</li>
+          <li>Volume of sphere = 4/3 π r³, Surface area = 4 π r²</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Frustum formula = subtracting top cone from full cone works mentally too.</p>
+        <h5>Concept:</h5>
+        <p>Mensuration advanced formulas help calculate exact volumes and surface areas of solids. Useful in combination with geometry for SSC questions.</p>
+      </div>
+    </div>
+
+    <!-- 5. Percentage & Growth -->
+    <div class="card p-3 mb-3" data-title="Percentage">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('percentage')">
+        5. Percentage & Growth
+      </button>
+      <div id="percentage" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Successive %: Final Value = P(1 ± R1/100)(1 ± R2/100)…</li>
+          <li>Net increase/decrease % = (Sum of % + product of % /100)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>For successive changes, multiply growth factors directly instead of calculating stepwise.</p>
+        <h5>Concept:</h5>
+        <p>Advanced percentage formulas simplify multi-step growth, decay, or successive discount problems commonly asked in SSC exams.</p>
+      </div>
+    </div>
+
+    <!-- 6. Ratio & Proportion -->
+    <div class="card p-3 mb-3" data-title="Ratio & Proportion">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('ratio')">
+        6. Ratio & Proportion
+      </button>
+      <div id="ratio" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>If a:b = c:d, then a/x = b/y = c/z (continued proportion)</li>
+          <li>Combine ratios: a:b = p:q, b:c = r:s → a:b:c = pr:qs (proportional scaling)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use LCM to merge multiple ratios into one sequence.</p>
+        <h5>Concept:</h5>
+        <p>Advanced ratio formulas handle multiple ratios, proportional distribution, and scaling quickly for quantitative questions.</p>
+      </div>
+    </div>
+
+    <!-- 7. Average & Weighted Average -->
+    <div class="card p-3 mb-3" data-title="Average">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('average')">
+        7. Average & Weighted Average
+      </button>
+      <div id="average" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Average = (Σx)/n</li>
+          <li>Weighted Average = (Σwᵢxᵢ)/(Σwᵢ)</li>
+          <li>Change in average = (Change in sum)/n</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Weighted average = multiply each value by its weight and divide total by sum of weights.</p>
+        <h5>Concept:</h5>
+        <p>Weighted average accounts for importance or frequency of elements, essential for SSC data interpretation and reasoning problems.</p>
+      </div>
+    </div>
+
+    <!-- 8. Time, Speed & Distance -->
+    <div class="card p-3 mb-3" data-title="Time Speed Distance">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('tsd')">
+        8. Time, Speed & Distance
+      </button>
+      <div id="tsd" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Speed = Distance / Time</li>
+          <li>Relative speed (same direction) = v1 - v2</li>
+          <li>Relative speed (opposite direction) = v1 + v2</li>
+          <li>Time = Distance / Speed</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Always check direction for relative speed: “same minus, opposite plus”.</p>
+        <h5>Concept:</h5>
+        <p>Advanced TSD includes relative motion, trains, boats, and circular tracks, helping solve complex SSC problems quickly.</p>
+      </div>
+    </div>
+
+   <!-- 9. Time & Work -->
+    <div class="card p-3 mb-3" data-title="Time Work">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('timework')">
+        9. Time & Work
+      </button>
+      <div id="timework" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Work done in 1 day = 1 / Total days of person</li>
+          <li>Combined work: 1/A + 1/B = 1/T (days)</li>
+          <li>Efficiency = Work / Time</li>
+          <li>If alternating work: Total work = Sum of fractions of each worker per day</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Always reduce to 1 day’s work, then multiply for total days. Alternate work problems → add fractions per cycle.</p>
+        <h5>Concept:</h5>
+        <p>Advanced Time & Work handles multiple workers, ratios of efficiency, and alternating work, common in SSC reasoning and aptitude sections.</p>
+      </div>
+    </div>
+
+    <!-- 10. Simple Interest -->
+    <div class="card p-3 mb-3" data-title="Simple Interest">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('si')">
+        10. Simple Interest
+      </button>
+      <div id="si" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>SI = (P × R × T)/100</li>
+          <li>P = SI × 100 / (R × T)</li>
+          <li>T = SI × 100 / (P × R)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Rearrange formula depending on which variable is unknown (P, R, or T).</p>
+        <h5>Concept:</h5>
+        <p>Advanced SI problems may ask for reverse calculation or missing variables, useful for SSC finance aptitude questions.</p>
+      </div>
+    </div>
+
+    <!-- 11. Compound Interest -->
+    <div class="card p-3 mb-3" data-title="Compound Interest">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('ci')">
+        11. Compound Interest
+      </button>
+      <div id="ci" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Amount = P(1 + R/100)ⁿ</li>
+          <li>CI = P[(1 + R/100)ⁿ - 1]</li>
+          <li>For n compounding periods per year: A = P(1 + R/100n)^(n×t)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>For half-yearly or quarterly, divide R by number of periods and multiply exponent by n.</p>
+        <h5>Concept:</h5>
+        <p>Advanced CI is used in periodic compounding, interest-on-interest calculations, and SSC exam problems with fractions of years.</p>
+      </div>
+    </div>
+
+    <!-- 12. Profit & Loss -->
+    <div class="card p-3 mb-3" data-title="Profit Loss">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('pl')">
+        12. Profit & Loss
+      </button>
+      <div id="pl" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Profit = SP – CP</li>
+          <li>Loss = CP – SP</li>
+          <li>Profit% = (Profit / CP) × 100</li>
+          <li>Loss% = (Loss / CP) × 100</li>
+          <li>SP = CP × (1 ± %/100)</li>
+          <li>Successive gains/loss: Net% = (Gain% + Loss% + (Gain%×Loss%)/100)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use SP formula for quick selling price calculations; successive gains/losses → use formula to avoid multi-step computation.</p>
+        <h5>Concept:</h5>
+        <p>Advanced Profit & Loss covers successive gains/losses, cost price ratios, and shortcuts, common in SSC aptitude questions.</p>
+      </div>
+    </div>
+
+    <!-- 13. Probability -->
+    <div class="card p-3 mb-3" data-title="Probability">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('probability')">
+        13. Probability
+      </button>
+      <div id="probability" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>P(E) = Favorable Outcomes / Total Outcomes</li>
+          <li>P(E') = 1 - P(E)</li>
+          <li>P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</li>
+          <li>P(A ∩ B) = P(A) × P(B) (if independent)</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use complement and union rules to simplify multiple events quickly.</p>
+        <h5>Concept:</h5>
+        <p>Advanced probability handles multiple events, independent/dependent events, and complex dice or card problems for SSC exams.</p>
+      </div>
+    </div>
+
+    <!-- 14. Statistics -->
+    <div class="card p-3 mb-3" data-title="Statistics">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('statistics')">
+        14. Statistics
+      </button>
+      <div id="statistics" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>Mean = Σx / n</li>
+          <li>Median (grouped) = L + [(n/2 – CF)/f] × h</li>
+          <li>Mode (grouped) = L + [(f1 – f0)/(2f1 – f0 – f2)] × h</li>
+          <li>Variance = Σ(x-mean)² / n</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use continuous class formulas for grouped data; variance formula helps in standard deviation quickly.</p>
+        <h5>Concept:</h5>
+        <p>Advanced statistics allows SSC students to handle large datasets, frequency tables, and grouped data efficiently for reasoning questions.</p>
+      </div>
+    </div>
+
+    <!-- 15. Number System & HCF-LCM -->
+    <div class="card p-3 mb-3" data-title="Number System">
+      <button class="btn btn-primary topic-btn" onclick="toggleDetails('numbers')">
+        15. Number System & HCF-LCM
+      </button>
+      <div id="numbers" class="topic-details">
+        <h5>Formulas:</h5>
+        <ul>
+          <li>HCF × LCM = Product of two numbers</li>
+          <li>Sum of n natural numbers = n(n+1)/2</li>
+          <li>Sum of squares = n(n+1)(2n+1)/6</li>
+          <li>Divisibility rules for 2,3,4,5,6,7,8,9,11,12</li>
+        </ul>
+        <h5>Trick:</h5>
+        <p>Use factorization shortcuts and divisibility rules for fast problem solving.</p>
+        <h5>Concept:</h5>
+        <p>Advanced number system formulas are crucial for SSC reasoning and aptitude, including sum formulas, HCF-LCM, and divisibility shortcuts.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle topic details
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+
+    // Search topics dynamically
+    function searchTopic() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const topics = document.querySelectorAll('#topics .card');
+
+      topics.forEach(topic => {
+        const title = topic.getAttribute('data-title').toLowerCase();
+        if(title.includes(input)) {
+          topic.style.display = "block"; // Show matching topic
+        } else {
+          topic.style.display = "none"; // Hide non-matching
+        }
+      });
+    }
+  </script>
+</body>
+</html>
